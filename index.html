@@ -289,6 +289,8 @@
 						behaviorFromXML.push(xmlName.replace(/^_behavior\.|\.text$/g, ""))
 					} else if (xmlName.startsWith('_behavior') && xmlName.endsWith('.bool')) {
 						behaviorFromXML.push(xmlName.replace(/^_behavior\.|\.bool$/g, ""))
+					} else if (xmlName.startsWith('_behavior') && xmlName.endsWith('.number')) {
+						behaviorFromXML.push(xmlName.replace(/^_behavior\.|\.number$/g, ""))
 					} else if (xmlName.startsWith('_outcomes')) {
 						outcomesFromXML.push(xmlName.replace(/^_outcomes\.|\.navigate$/g, ""))
 					}
