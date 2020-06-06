@@ -5,49 +5,68 @@ const validateDescriptor = (descriptor, contentXML) => {
 		contentXML.root.content.root.responsivegrid
 	)[0];
 
-	const contentFromXML = Object.keys(
+	const contentFromXML = [];
+	const behaviorFromXML = [];
+	const outcomesFromXML = [];
+	Object.keys(
 		contentXML.root.content.root.responsivegrid[xmlContentName])
-		.map(xmlName => {
-			return xmlName.replace(/^_content\.|\.Text$/g, "");
-		})
-		.filter(
-			n =>
-				!n.startsWith("_jcr") &&
-				!n.startsWith("_behavior") &&
-				!n.startsWith("_outcomes") &&
-				!n.startsWith("_sling") &&
-				!n.startsWith("_singleton")
-		);
+		.forEach(xmlName => {
+			if(xmlName.startsWith('_content')) {
+				contentFromXML.push(xmlName.replace(/^_content\.|\.Text$/g, ""));
+			} else if (xmlName.startsWith('_behavior') && xmlName.endsWith('.text')) {
+				behaviorFromXML.push(xmlName.replace(/^_behavior\.|\.text$/g, ""))
+			} else if (xmlName.startsWith('_behavior') && xmlName.endsWith('.bool')) {
+				behaviorFromXML.push(xmlName.replace(/^_behavior\.|\.bool$/g, ""))
+			} else if (xmlName.startsWith('_outcomes')) {
+				outcomesFromXML.push(xmlName.replace(/^_outcomes\.|\.navigate$/g, ""))
+			}
+		});
 
 	const contentFromDesc = descriptor.content;
+	const behaviorFromDesc = descriptor.behaviorParams;
+	const outcomesFromDesc = descriptor.outcomes;
 
-	const notExistInXml = [];
-	const notExistInDesc = [];
+	const notExistContentInXml = [];
+	const notExistContentInDesc = [];
 
-	contentFromDesc.forEach(cont => {
-		if (!contentFromXML.includes(cont.itemId)) {
-			notExistInXml.push(cont);
-		}
-	});
+	const notExistBehaviorInXml = [];
+	const notExistBehaviorInDesc = [];
 
-	contentFromXML.forEach(itemId => {
-		if (
-			!contentFromDesc.find(
-				item => item.itemId === itemId || item.actionId === itemId
-			)
-		) {
-			notExistInDesc.push(itemId);
-		}
-	});
+	const notExistOutcomesInXml = [];
+	const notExistOutcomesInDesc = [];
 
-	console.log("notExistInDesc", notExistInDesc);
-	console.log("notExistInXml", notExistInXml);
-	notExistInXml.forEach(item =>
-		console.log(`content.${item.itemId}.Text="${item.defaultValue}"`)
+	const check = (fromDesc, fromXml, fieldName, notExistDescArr, notExistXmlArr ) => {
+		fromDesc.forEach(cont => {
+			if (!fromXml.includes(cont[fieldName])) {
+				notExistXmlArr.push({name: cont[fieldName]});
+			}
+		});
+
+		fromXml.forEach(itemId => {
+			if (!fromDesc.find(item => item[fieldName] === itemId)) {
+				notExistDescArr.push({name: itemId});
+			}
+		});
+	}
+
+	check(contentFromDesc, contentFromXML, 'itemId', notExistContentInDesc, notExistContentInXml);
+	check(behaviorFromDesc, behaviorFromXML, 'itemId', notExistBehaviorInDesc, notExistBehaviorInXml);
+	check(outcomesFromDesc, outcomesFromXML, 'actionId', notExistOutcomesInDesc, notExistOutcomesInXml);
+
+	console.log("notExistContentInDesc", notExistContentInDesc);
+	console.log("notExistContentInXml", notExistContentInXml);
+	notExistContentInXml.forEach(item =>
+		console.log(`content.${item.name}.Text="${item.defaultValue}"`)
 	);
 
-	return {notExistInDesc, notExistInXml};
-
+	return {
+		notExistContentInDesc,
+		notExistContentInXml,
+		notExistBehaviorInXml,
+		notExistBehaviorInDesc,
+		notExistOutcomesInXml,
+		notExistOutcomesInDesc
+	};
 }
 
 function ViewModel() {
@@ -56,15 +75,28 @@ function ViewModel() {
 	// Descriptor
 	self.descriptorObj = ko.observable(null);
 	self.descriptorMissingContent = ko.observableArray();
-	self.isDescriptorMissingContentVisible = ko.observable(false);
-	self.showDescriptorMissingContent = function(){
-		self.isDescriptorMissingContentVisible(!self.isDescriptorMissingContentVisible());
-	}
+	self.notExistContentInDesc = ko.observable(null);
+	self.notExistContentInXml = ko.observable(null);
+	self.notExistBehaviorInXml = ko.observable(null);
+	self.notExistBehaviorInDesc = ko.observable(null);
+	self.notExistOutcomesInXml = ko.observable(null);
+	self.notExistOutcomesInDesc = ko.observable(null);
 
 	self.onFilesLoaded = function() {
-		const {notExistInDesc, notExistInXml} = validateDescriptor(self.descriptorObj(), self.contentObj());
-		self.contentMissingContent(notExistInXml.map(item => ({name: item.itemId})));
-		self.descriptorMissingContent(notExistInDesc.map(item => ({name: item})));
+		const {
+			notExistContentInDesc,
+			notExistContentInXml,
+			notExistBehaviorInXml,
+			notExistBehaviorInDesc,
+			notExistOutcomesInXml,
+			notExistOutcomesInDesc
+		} = validateDescriptor(self.descriptorObj(), self.contentObj());
+		self.notExistContentInDesc(notExistContentInDesc);
+		self.notExistContentInXml(notExistContentInXml);
+		self.notExistBehaviorInXml(notExistBehaviorInXml);
+		self.notExistBehaviorInDesc(notExistBehaviorInDesc);
+		self.notExistOutcomesInXml(notExistOutcomesInXml);
+		self.notExistOutcomesInDesc(notExistOutcomesInDesc);
 		self.isFilesLoaded(true);
 	}
 
@@ -87,10 +119,6 @@ function ViewModel() {
 	// Content
 	self.contentObj = ko.observable(null);
 	self.contentMissingContent = ko.observableArray();
-	self.isContentMissingContentVisible = ko.observable(false);
-	self.showContentMissingContent = function(){
-		self.isContentMissingContentVisible(!self.isContentMissingContentVisible());
-	}
 
 	self.openContentFile = function(data, event) {
 		var input = event.target;

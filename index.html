@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">SpringBoot AdminLTE</title>
+    <title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">Descriptor Validator</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
     <!-- Bootstrap 3.3.6 -->
@@ -16,7 +16,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.2/css/AdminLTE.min.css" />
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-      folder instead of downloading all of them to reduce the load. -->
+       folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.2/css/skins/_all-skins.min.css"/>
     <!-- iCheck -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.2/css/skins/skin-blue.min.css" />
@@ -47,8 +47,8 @@
     </header>
     <!-- Left side column. contains the logo and sidebar -->
     <!-- <aside class="main-sidebar">
-      <div w3-include-html="../OWA-Standalone/templets/fragments/main-sidebar.html"></div>
-      </aside> -->
+       <div w3-include-html="../OWA-Standalone/templets/fragments/main-sidebar.html"></div>
+       </aside> -->
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Main content -->
@@ -60,9 +60,9 @@
                     <small>descriptor.json and content.xml alignment validator</small>
                 </h1>
                 <!-- <ol class="breadcrumb">
-                  <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                  <li class="active">Import CSV file</li>
-                  </ol> -->
+                   <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                   <li class="active">Import CSV file</li>
+                   </ol> -->
             </section>
             <div layout:fragment="content">
                 <div class="row">
@@ -88,7 +88,47 @@
                                                     </div>
                                                     <div class="box-body">
                                                         <div class="row">
-                                                            <div data-bind="foreach: descriptorMissingContent">
+                                                            <div data-bind="foreach: notExistContentInDesc">
+                                                                <div class="col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label danger" data-bind="text: name"></label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="box box-danger">
+                                                    <div class="box-header with-border">
+                                                        <h3 class="box-title">behavior missing in descriptor.json</h3>
+                                                    </div>
+                                                    <div class="box-body">
+                                                        <div class="row">
+                                                            <div data-bind="foreach: notExistBehaviorInDesc">
+                                                                <div class="col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label danger" data-bind="text: name"></label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="box box-danger">
+                                                    <div class="box-header with-border">
+                                                        <h3 class="box-title">outcomes missing in descriptor.json</h3>
+                                                    </div>
+                                                    <div class="box-body">
+                                                        <div class="row">
+                                                            <div data-bind="foreach: notExistOutcomesInDesc">
                                                                 <div class="col-xs-12">
                                                                     <div class="form-group">
                                                                         <label class="control-label danger" data-bind="text: name"></label>
@@ -121,7 +161,47 @@
                                                     </div>
                                                     <div class="box-body">
                                                         <div class="row">
-                                                            <div data-bind="foreach: contentMissingContent">
+                                                            <div data-bind="foreach: notExistContentInXml">
+                                                                <div class="col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label danger" data-bind="text: name"></label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="box box-danger">
+                                                    <div class="box-header with-border">
+                                                        <h3 class="box-title">behavior missing in content.xml</h3>
+                                                    </div>
+                                                    <div class="box-body">
+                                                        <div class="row">
+                                                            <div data-bind="foreach: notExistBehaviorInXml">
+                                                                <div class="col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label danger" data-bind="text: name"></label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="box box-danger">
+                                                    <div class="box-header with-border">
+                                                        <h3 class="box-title">outcomes missing in content.xml</h3>
+                                                    </div>
+                                                    <div class="box-body">
+                                                        <div class="row">
+                                                            <div data-bind="foreach: notExistOutcomesInXml">
                                                                 <div class="col-xs-12">
                                                                     <div class="form-group">
                                                                         <label class="control-label danger" data-bind="text: name"></label>
@@ -136,25 +216,28 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /.content -->
-        <footer class="main-footer" style="position: absolute; bottom: 0; width: 100%">
-            <div class="pull-right hidden-xs">
-                <b>Version</b> 0.0.1
-            </div>
-            <strong>Copyright &copy; 2020 <a href="https://github.com/amitznati" target="_blank">@Amit Znati</a>.</strong> All rights
-            reserved.
-        </footer>
     </div>
-    <!-- /.content-wrapper -->
-    <!-- Control Sidebar -->
-    <!-- <aside class="control-sidebar control-sidebar-dark">
-      <div th:replace="/fragments/control-sidebar"></div>
-      </aside> -->
+    </section>
+    <!-- /.content -->
+    <footer class="main-footer" style="position: absolute; bottom: 0; width: 100%">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 0.0.1
+        </div>
+        <strong>Copyright &copy; 2020 <a href="https://github.com/amitznati" target="_blank">@Amit Znati</a>.</strong> All rights
+        reserved.
+    </footer>
+</div>
+<!-- /.content-wrapper -->
+<!-- Control Sidebar -->
+<!-- <aside class="control-sidebar control-sidebar-dark">
+   <div th:replace="/fragments/control-sidebar"></div>
+   </aside> -->
 </div>
 <!-- ./wrapper -->
 <!-- jQuery 2.2.0 -->
@@ -170,7 +253,7 @@
 <!-- <script src="/plugins/morris/morris.min.js"></script> -->
 <script src="https://omnipotent.net/jquery.sparkline/2.1.2/jquery.sparkline.min.js"></script>
 <!-- <script src="/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-  <script src="/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script> -->
+   <script src="/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/daterangepicker.js"></script>
