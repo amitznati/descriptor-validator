@@ -1,0 +1,1106 @@
+{
+  "displayName": "digitalexp-business-accessory-gallery-module-l9",
+  "widgetId": "digitalexp-business-accessory-gallery-module-l9",
+  "widgetCategory": "Digital Experience",
+  "widgetDomain": "Application",
+  "widgetSalesChannel": "Base",
+  "widgetDescription": "DigitalExpBusinessAccessoryGalleryWidget component",
+  "topicName": "businessAccessoryGallery",
+  "behaviorParams": [
+    {
+      "groupId": "displayOptions",
+      "itemId": "displayFilterOption",
+      "displayName": "Show filter panel",
+      "type": "boolean",
+      "description": "Need to show the filter panel",
+      "defaultValue": true
+    },
+    {
+      "groupId": "",
+      "itemId": "defaultImage",
+      "displayName": "Default image",
+      "type": "text",
+      "description": "Default Image",
+      "defaultValue": "/etc/clientlibs/uscellular/style/css/images/svgs/GalaxyS9.png"
+    },
+    {
+      "groupId": "displayOptions",
+      "itemId": "displayClearAllOption",
+      "displayName": "Show clear all option",
+      "type": "boolean",
+      "description": "Need to show the clear all option",
+      "defaultValue": true
+    },
+    {
+      "groupId": "displayOptions",
+      "itemId": "displaySortBox",
+      "displayName": "Show sort box option",
+      "type": "boolean",
+      "description": "Need to show the sort box option",
+      "defaultValue": true
+    },
+    {
+      "groupId": "displayOptions",
+      "itemId": "displayFreeTextSearch",
+      "displayName": "Show free text search option",
+      "type": "boolean",
+      "description": "Need to show the free text search option",
+      "defaultValue": true
+    },
+    {
+      "groupId": "",
+      "itemId": "numberOfItems",
+      "displayName": "how many accessory in PerPage",
+      "type": "text",
+      "description": "Need to show the free text search option",
+      "defaultValue": "10"
+    },
+    {
+      "groupId": "",
+      "displayName": "default category",
+      "type": "text",
+      "itemId": "defaultCategory",
+      "description": "default category",
+      "defaultValue": "Accessory"
+    },
+    {
+      "groupId": "",
+      "displayName": "message error image",
+      "type": "text",
+      "itemId": "messageErrorImage",
+      "description": "message error image",
+      "defaultValue": "/etc/clientlibs/uscellular/style/css/images/svgs/Alert_Icon.svg"
+    }
+  ],
+  "outcomes": [
+    {
+      "displayName": "Navigate to Cart",
+      "actionId": "NavigateToSubscriberDashboard",
+      "groupId": "navigation",
+      "actionType": "navigate",
+      "defaultValue": "business/subscriberdashboard"
+    },
+    {
+      "displayName": "Navigate to Cart",
+      "actionId": "NavigateToCart",
+      "groupId": "navigation",
+      "actionType": "navigate",
+      "defaultValue": "business/cart"
+    },
+    {
+      "displayName": "Navigate To Accessory Details",
+      "actionId": "NavigateToaccessoriesDetails",
+      "groupId": "navigation",
+      "actionType": "navigate",
+      "defaultValue": "business/accessorydetails"
+    },
+    {
+      "displayName": "Navigate To Rate",
+      "actionId": "NavigateToRatePage",
+      "groupId": "navigation",
+      "actionType": "navigate",
+      "defaultValue": "business/accessorydetails"
+    },
+    {
+      "displayName": "Navigate To Select Services ",
+      "actionId": "NavigateToAddons",
+      "groupId": "navigation",
+      "actionType": "navigate",
+      "defaultValue": "business/selectservices"
+    }
+  ],
+  "content": [
+    {
+      "itemId": "accessoryGallery_maxItemToCartMessage",
+      "groupId": "addToCart",
+      "displayName": "Max line reached message",
+      "defaultValue": "You can purchase up to 10 items at a time. If you wish to add another item, either complete the order and return to this page or remove one item and choose another instead.",
+      "description": "Max line reached message, shown when user reached max items to cart"
+    },
+    {
+      "itemId": "accessoryGallery_accessoryOriginalPrice",
+      "groupId": "addToCart",
+      "displayName": "The accessory original price",
+      "defaultValue": "Original Price",
+      "description": "The original price for the accessory"
+    },
+    {
+      "itemId": "accessoryGallery_placeHolder",
+      "groupId": "addToCart",
+      "displayName": "Placeholder for promotion criteria and legal disclaimers",
+      "defaultValue": "",
+      "description": "AEM text placeholder for promotion criteria and legal disclaimers"
+    },
+    {
+      "itemId": "accessoryGallery_accessoryDiscount",
+      "groupId": "addToCart",
+      "displayName": "placeHolder",
+      "defaultValue": "Discount",
+      "description": "AEM text placeholder for promotion criteria and legal disclaimers"
+    },
+    {
+      "itemId": "accessoryGallery_accessoryFinalPrice",
+      "groupId": "addToCart",
+      "displayName": "The accessory final price",
+      "defaultValue": "Price",
+      "description": "the final price for the accessory"
+    },
+    {
+      "itemId": "accessoryGallery_maxItemToCartTitle",
+      "groupId": "addToCart",
+      "displayName": "Max line reached title",
+      "defaultValue": "MAXIMUM LINE CHANGES REACHED",
+      "description": "Max line reached title, shown when user reached max line changes"
+    },
+    {
+      "itemId": "accessoryGallery_okButtonText",
+      "groupId": "addToCart",
+      "displayName": "OK Button text on message",
+      "defaultValue": "OK",
+      "description": "OK Button text on message, closes message dialog"
+    },
+    {
+      "groupId": "addToCart",
+      "displayName": "continue",
+      "itemId": "deviceGallery_addedToCart",
+      "description": "continue label",
+      "defaultValue": "ADDED TO CART"
+    },
+    {
+      "groupId": "addToCart",
+      "displayName": "continue",
+      "itemId": "deviceGallery_continue",
+      "description": "continue label",
+      "defaultValue": "CONTINUE"
+    },
+    {
+      "groupId": "addToCart",
+      "displayName": "Continue To Cart link",
+      "itemId": "deviceGallery_continueToCart",
+      "description": "Link text, navigates to cart",
+      "defaultValue": "Continue To Cart"
+    },
+    {
+      "itemId": "accessoryGallery_addMoreAccessoriesModal",
+      "groupId": "addToCart",
+      "displayName": "Add More Accessories",
+      "defaultValue": "Add More Accessories",
+      "description": "Add More Accessories title for Modal"
+    },
+    {
+      "itemId": "accessoryGallery_continueToNextLineModal",
+      "groupId": "addToCart",
+      "displayName": "Continue to Next Line",
+      "defaultValue": "Continue to Next Lines",
+      "description": "Continue to Next Line title for Modal"
+    },
+    {
+      "groupId": "addToCart",
+      "displayName": "Skip Accessories link",
+      "itemId": "deviceGallery_ContinueMobileModal",
+      "description": "How would you like to proceed? in Mobile modal after contiue btn",
+      "defaultValue": "How would you like to proceed?"
+    },
+    {
+      "groupId": "addToCart",
+      "displayName": "Skip Accessories link",
+      "itemId": "deviceGallery_skipAccessories",
+      "description": "Link text skip accessories, shwon if not last line",
+      "defaultValue": "Continue to Cart"
+    },
+    {
+      "groupId": "addToCart",
+      "displayName": "Next line link",
+      "itemId": "deviceGallery_nextLine",
+      "description": "Link text next line, shwon if not last line",
+      "defaultValue": "Next Line"
+    },
+    {
+      "groupId": "addToCart",
+      "displayName": "Notification",
+      "itemId": "accessoryGallery_modalTitleBusinessBuyAccessory",
+      "description": "Modal title for empty cart -Buy accessory flow ",
+      "defaultValue": "Notification"
+    },
+    {
+      "groupId": "addToCart",
+      "displayName": "You must first select an accessory in order to continue.",
+      "itemId": "accessoryGallery_modalBodyBusinessBuyAccessory",
+      "description": "Modal body for empty cart -Buy accessory flow ",
+      "defaultValue": "You must first select an accessory in order to continue."
+    },
+    {
+      "itemId": "category_title",
+      "groupId": "displayLabels",
+      "displayName": "Shop By Category title",
+      "defaultValue": "SHOP BY CATEGORY",
+      "description": "Label text,user can choose between one of the categories to shop by"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "No Accessories label",
+      "itemId": "no_accessories",
+      "description": "Label text, shows when there is no matching accessories",
+      "defaultValue": "Oops! We couldnt find any accessory matching your request, but we are sure we have one for you! Please change your search terms and try again."
+    },
+    {
+      "itemId": "accessoryGallery_moreDetails",
+      "groupId": "accessoryCard",
+      "displayName": "More details link text",
+      "defaultValue": "More Details",
+      "description": "Link text more details, navigates to  accseory details"
+    },
+    {
+      "groupId": "images",
+      "itemId": "accessoryGallery_defaultImage",
+      "displayName": "Default Accessory Image",
+      "description": "URL pointing to a default image. This image is displayed when an image attachment of the mobile Accessory was not found\u00a0in the catalog.",
+      "defaultValue": "https://content.uscc.com/default/LVPIC.jpg"
+    },
+    {
+      "itemId": "accessoryGallery_addToCart",
+      "groupId": "addToCart",
+      "displayName": "Accessory Gallery Add To Cart",
+      "defaultValue": "Add To Cart",
+      "description": "Add To Cart Label"
+    },
+    {
+      "itemId": "accessoryGallery_ItemIsNotAvailableForSale",
+      "groupId": "accessoryAviability",
+      "displayName": "Item is not available for sale label",
+      "description": "Item isn't available for sale on the current date (AEM Flag)",
+      "defaultValue": "Item is currently not available for sale"
+    },
+    {
+      "defaultValue": "Pre-Order",
+      "description": "Clicking the button trigger UXF checks whether address serviceability has passed, and only then UXF adds the device to the cart.If serviceability is still not checked, then the serviceability popup modal will be opened.",
+      "displayName": "Pre-Order button text",
+      "groupId": "accessoryAviability",
+      "itemId": "accessoryGallery_pre_order"
+    },
+    {
+      "defaultValue": "Available for Preorder",
+      "description": "label text indicates if pre order is available for current accessory",
+      "displayName": "Available for preorder label",
+      "groupId": "accessoryAviability",
+      "itemId": "available_for_preorder"
+    }, {
+      "groupId": "",
+      "itemId": "IMEI",
+      "displayName": "IMEI#: ",
+      "description": "IMEI number",
+      "defaultValue": "IMEI#: "
+    }, {
+      "groupId": "",
+      "itemId": "SIM",
+      "displayName": "SIM#: ",
+      "description": "Own sim number",
+      "defaultValue": "SIM#: "
+    }, {
+      "groupId": "",
+      "itemId": "ESN",
+      "displayName": "ESN#: ",
+      "description": "ESN number",
+      "defaultValue": "ESN#: "
+    }, 
+    {
+      "itemId": "accessoryGallery_addedToCart",
+      "groupId": "addToCart",
+      "displayName": "Accessory Gallery Added To Cart",
+      "defaultValue": "Added!",
+      "description": "Message text, shown when accessory added to cart"
+    },
+    {
+      "itemId": "accessoryGallery_addedToCartState",
+      "groupId": "addToCart",
+      "displayName": "Accessory Gallery Added To Cart",
+      "defaultValue": "Added!",
+      "description": "Message text, shown when accessory added to cart state"
+    },
+    {
+      "itemId": "accessoryGallery_addedToCartButton",
+      "groupId": "addToCart",
+      "displayName": "Accessory Gallery Added To Cart",
+      "defaultValue": "Add",
+      "description": "Button text, add accessory ro cart"
+    },
+    {
+      "itemId": "accessoryGallery_addedToCartCountSuffix",
+      "groupId": "addToCart",
+      "displayName": "Accessory gallery added to cart count suffix",
+      "defaultValue": "in Cart",
+      "description": "Label text, shown after adding acessory to cart proccess"
+    },
+    {
+      "itemId": "accessoryGallery_galleryTitle",
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "Accessory Gallery Title",
+      "defaultValue": "Accessories for your",
+      "description": "Accessory Gallery Title"
+    },
+    {
+      "itemId": "accessoryGallery_galleryTitleAnonymousAccessory",
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "Anonymous Accessory Gallery Title",
+      "defaultValue": "Accessories",
+      "description": "Title Accsseories"
+    },
+    {
+      "itemId": "accessoryGallery_accessories",
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "Accessory gallery title",
+      "defaultValue": "Accessories",
+      "description": "Accessory gallery title"
+    },
+    {
+      "itemId": "accessoryGallery_categoryCounter",
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "Accessory Category counter label",
+      "defaultValue": "(Showing {counter} Accessories)",
+      "description": "Gallery Counter label"
+    },
+    {
+      "itemId": "accessoryGallery_sortBy",
+      "groupId": "displayLabels",
+      "displayName": "Accessory gallery sort by label",
+      "defaultValue": "Sort By: ",
+      "description": "Label sort by, user can sort by one of the below optons:"
+    },
+    {
+      "itemId": "accessoryGallery_months",
+      "groupId": "displayLabels",
+      "displayName": "Accessory gallery months label",
+      "defaultValue": "Months",
+      "description": "Months label"
+    },
+    {
+      "itemId": "accessoryGallery_overview",
+      "groupId": "infoTab",
+      "displayName": "Accessory gallery overview label",
+      "defaultValue": "Overview",
+      "description": "Overview label"
+    },
+    {
+      "itemId": "accessoryGallery_specifications",
+      "groupId": "displayLabels",
+      "displayName": "Accessory Gallery specifications label",
+      "defaultValue": "Specifications",
+      "description": "Specifications label"
+    },
+    {
+      "itemId": "accessoryGallery_share",
+      "groupId": "displayLabels",
+      "displayName": "Accessory gallery share label",
+      "defaultValue": "Share",
+      "description": "Share label"
+    },
+    {
+      "itemId": "accessoryGallery_device",
+      "groupId": "displayLabels",
+      "displayName": "Accessory gallery device label",
+      "defaultValue": "Device",
+      "description": "Device label"
+    },
+    {
+      "itemId": "accessoryGallery_protection",
+      "groupId": "displayLabels",
+      "displayName": "Accessory gallery protection label",
+      "defaultValue": "Protection",
+      "description": "Protection label"
+    },
+    {
+      "itemId": "accessoryGallery_plan",
+      "groupId": "displayLabels",
+      "displayName": "Accessory gallery plan label",
+      "defaultValue": "Plan",
+      "description": "Plan label"
+    },
+    {
+      "itemId": "accessoryGallery_features",
+      "groupId": "infoTab",
+      "displayName": "Accessory Gallery features label",
+      "defaultValue": "Features",
+      "description": "Features label"
+    },
+    {
+      "itemId": "accessoryGallery_review",
+      "groupId": "infoTab",
+      "displayName": "Accessory gallery review label",
+      "defaultValue": "Review",
+      "description": "Review label"
+    },
+    {
+      "itemId": "accessoryGallery_otterBox",
+      "groupId": "displayLabels",
+      "displayName": "Accessory gallery otterBox label",
+      "defaultValue": "OtterBox",
+      "description": "OtterBox Label"
+    },
+    {
+      "itemId": "accessoryGallery_accessoriesForYour",
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "Accessory Gallery Accessories for your label",
+      "defaultValue": "Accessories for your",
+      "description": "Accessories for your label"
+    },
+    {
+      "itemId": "accessoryGallery_showFilter",
+      "groupId": "displayLabels",
+      "displayName": "Accessory Gallery Filters label",
+      "defaultValue": "Show filters",
+      "description": "Show filters label"
+    },
+    {
+      "groupId": "filters",
+      "displayName": "SUBSIDY option",
+      "itemId": "filterBlock_SUBSIDY",
+      "description": "SUBSIDY price type option",
+      "defaultValue": "2 Year Contract"
+    },
+    {
+      "groupId": "filters",
+      "displayName": "EIP option",
+      "itemId": "filterBlock_EIP",
+      "description": "EIP  price type option",
+      "defaultValue": "Installments"
+    },
+    {
+      "groupId": "filters",
+      "displayName": "CATALOG option",
+      "itemId": "filterBlock_CATALOG",
+      "description": "CATALOG  price type option",
+      "defaultValue": "Prepaid"
+    },
+    {
+      "groupId": "accessoryAviability",
+      "displayName": "Limited stock label",
+      "itemId": "accessoryGallery_limitedStock",
+      "description": "Label text,shown when stock is limited for accessory",
+      "defaultValue": "Limited stock."
+    },
+    {
+      "groupId": "accessoryAviability",
+      "displayName": "Call local store for availability label link",
+      "itemId": "accessoryGallery_callLocalStoreForAvailability",
+      "description": "Label link, shown when stock is limited for accessory",
+      "defaultValue": "Call your local store"
+    },
+    {
+      "groupId": "displayLabels",
+      "itemId": "deviceGallery_Line",
+      "displayName": "deviceGallery_Line",
+      "description": "deviceGallery_Line",
+      "defaultValue": "Phone Line #"
+    },
+    {
+      "defaultValue": "/etc/clientlibs/uscellular/style/css/images/svgs/mobile.svg",
+      "description": "Url points to line image",
+      "displayName": "Line image",
+      "groupId": "images",
+      "itemId": "deviceGallery_Line_image"
+    },
+    {
+      "defaultValue": "/etc/clientlibs/uscellular/style/css/images/svgs/Tablet-icon.svg",
+      "description": "Url points to connected device image",
+      "displayName": "Connected Device image",
+      "groupId": "images",
+      "itemId": "deviceGallery_connectedDevice_image"
+    },
+    {
+      "defaultValue": "Connected Device #",
+      "description": "Connected Device label",
+      "displayName": "Connected Device label",
+      "groupId": "displayLabels",
+      "itemId": "deviceGallery_connectedDevice"
+    },
+    {
+      "groupId": "deviceGalleryNavLine",
+      "itemId": "deviceGallery_hsiDevice",
+      "displayName": "Text of HSI device type",
+      "description": "Text of HSI device type",
+      "defaultValue": "High Speed Internet"
+    },
+    {
+      "groupId": "deviceGalleryNavLine",
+      "itemId": "deviceGallery_hsiDevice_image",
+      "displayName": "Image Url of HSI device type",
+      "description": "Image Url of HSI device type",
+      "defaultValue": "/etc/clientlibs/uscellular/style/css/images/icons_uplift/20/wifi_gray.svg"
+    },
+    {
+      "groupId": "displayLabels",
+      "itemId": "accessoriesGallery_skipAccessories",
+      "displayName": "Skip Accessories label",
+      "description": "Label for skip accessories",
+      "defaultValue": "Continue to cart"
+    },
+    {
+      "groupId": "displayLabels",
+      "itemId": "accessoriesGallery_back",
+      "displayName": "Back ",
+      "description": "Back",
+      "defaultValue": "Back"
+    },
+    {
+      "groupId": "displayLabels",
+      "displayName": "Next line label",
+      "itemId": "accessoriesGallery_nextLine",
+      "description": "Label for next line",
+      "defaultValue": "next line"
+    },
+    {
+      "defaultValue": "/etc/clientlibs/uscellular/style/css/images/svgs/GalaxyS9.png",
+      "description": "default device image",
+      "displayName": "default image",
+      "groupId": "images",
+      "itemId": "defaultImage",
+      "type": "text"
+    },
+    {
+      "groupId": "displayLabels",
+      "itemId": "accessoryGallery_searchlabel",
+      "displayName": "Search Accessories label title",
+      "defaultValue": "Search",
+      "description": "Search accessories label title"
+    },
+    {
+      "groupId": "displayLabels",
+      "itemId": "accessoryGallery_search",
+      "displayName": "Search Accessories label",
+      "defaultValue": "Search Accessories",
+      "description": "Label search accessories, user can search accessories list"
+    },
+    {
+      "groupId": "displayLabels",
+      "displayName": "For availability label",
+      "itemId": "accessoryGallery_forAvailability",
+      "description": "for availability label",
+      "defaultValue": " for availability."
+    },
+    {
+      "groupId": "displayLabels",
+      "displayName": "Installment Pricing title",
+      "itemId": "accessoryGallery_installmentPriceTitle",
+      "description": "Title Installment Pricing",
+      "defaultValue": "Installment Pricing "
+    },
+    {
+      "groupId": "displayLabels",
+      "displayName": "Installment filter title",
+      "itemId": "accessoryGallery_installmentFilterTitle",
+      "description": "Show installment pricing only filter label value ",
+      "defaultValue": "Show installment pricing only"
+    },
+    {
+      "groupId": "displayLabels",
+      "displayName": "Installment Pricing message part 1",
+      "itemId": "accessoryGallery_installmentPriceMessage1",
+      "description": "Installment Pricing message part 1",
+      "defaultValue": "- 0% interest with purchase of accessories totaling a "
+    },
+    {
+      "groupId": "displayLabels",
+      "displayName": "Installment Pricing message part 2",
+      "itemId": "accessoryGallery_installmentPriceMessage2",
+      "description": "Installment Pricing message part 2",
+      "defaultValue": "minimum of ${price}"
+    },
+    {
+      "groupId": "displayLabels",
+      "displayName": "Installment Pricing message for popup",
+      "itemId": "accessoryGallery_aipPriceMessageForPopup",
+      "description": "Installment Pricing message for popup",
+      "defaultValue": "${fullPrice} (${aipPrice}/mo. X 12 mos.)"
+    },
+    {
+      "groupId": "displayLabels",
+      "displayName": "Installment title",
+      "itemId": "accessoryGallery_installmentsTitle",
+      "description": "Title of Installments",
+      "defaultValue": "Installments"
+    },
+    {
+      "groupId": "displayLabels",
+      "displayName": "Full Price title",
+      "itemId": "accessoryGallery_fullPrice",
+      "description": "Title of Full Price",
+      "defaultValue": "Full Price"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "Price Tooltip message part 3",
+      "itemId": "accessoryGallery_PriceTooltip3",
+      "description": "Price Tooltip message part 3",
+      "defaultValue": "Accessories Installment Pricing amount may change based on credit check"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "Price Tooltip message part 1",
+      "itemId": "accessoryGallery_PriceTooltip1",
+      "description": "Price Tooltip message part 1",
+      "defaultValue": "${price} for the 1st installment"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "Card main Price",
+      "itemId": "accessoryGallery_Card_Price",
+      "description": "Card main Price",
+      "defaultValue": "${price} "
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "Card main Price",
+      "itemId": "accessoryGallery_Card_Price_Full_Price",
+      "description": "Card main Price",
+      "defaultValue": "${price} "
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "Price Tooltip message part 1",
+      "itemId": "accessoryGallery_PriceTooltip_Same_payments",
+      "description": "Price Tooltip message part 1",
+      "defaultValue": "${price} for installments 1 - 12"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "Number Of Installments",
+      "itemId": "accessoryGallery_Number_Installments",
+      "description": "Number Of Installments",
+      "defaultValue": "mo. X {numberOfInstallments} mos."
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "Price Tooltip message part 1",
+      "itemId": "accessoryGallery_PriceTooltip2",
+      "description": "Price Tooltip message part 1",
+      "defaultValue": "${price} for installments 2 - 12"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "Meassge Installment is not available",
+      "itemId": "accessoryGallery_installmentNotAvailable",
+      "description": "Installment is not available message",
+      "defaultValue": "Installment pricing is not available for this accessory"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "Meassge You are almost there",
+      "itemId": "accessoryGallery_youAreAlmost1",
+      "description": "You are almost there message",
+      "defaultValue": "Subscriber is almost there! "
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "Add label of You are almost there message",
+      "itemId": "accessoryGallery_youAreAlmostAdd",
+      "description": "You are almost there message -add label",
+      "defaultValue": "Add "
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "Add more worth label of You are almost there message",
+      "itemId": "accessoryGallery_youAreAlmostMore",
+      "description": "You are almost there message -add more worth label",
+      "defaultValue": " more worth of accessories to qualify for installment pricing (Min. to qualify: ${price})"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "Added to cart message",
+      "itemId": "accessoryGallery_addedToCartMessage",
+      "description": "Added to cart message",
+      "defaultValue": "Added to cart"
+    },
+    {
+      "groupId": "displayLabels",
+      "displayName": "Label for Continue",
+      "itemId": "accessoryGallery_continue",
+      "description": "Continue label",
+      "defaultValue": "Continue"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "Message You are qualified",
+      "itemId": "accessoryGallery_youAreQualified",
+      "description": "You are qualified message",
+      "defaultValue": "Subscriber is qualified for installment pricing at 0% APR"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "ThresholdErrorMessage1 Modal Title",
+      "itemId": "ThresholdErrorMessage1Modal_Title",
+      "description": "Maximum Number of Accessories Exceeded",
+      "defaultValue": "Maximum Number of Accessories Exceeded"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "ThresholdErrorMessage1Modal Button First",
+      "itemId": "ThresholdErrorMessage1ModalButtonFirst",
+      "description": "Return To Cart",
+      "defaultValue": "Return To Cart"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "ThresholdErrorMessage1 Modal Body 3",
+      "itemId": "ThresholdErrorMessage1Modal_Body_3",
+      "description": "ThresholdErrorMessage1Modal Body 3",
+      "defaultValue": "Dont worry. Your cart is saved."
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "ThresholdErrorMessage1 Modal Body 2",
+      "itemId": "ThresholdErrorMessage1Modal_Body_2",
+      "description": "description",
+      "defaultValue": "To proceed, please remove {X} accessories from your cart or contact us to help you complete your purchase."
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "ThresholdErrorMessage1 Modal Body 1",
+      "itemId": "ThresholdErrorMessage1Modal_Body_1",
+      "description": "description",
+      "defaultValue": "We are sorry. Due to limitation set by the system, you can purchase up to {Y} accessories on your account."
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "ThresholdErrorMessage1ModalForAddToCart_Title",
+      "itemId": "ThresholdErrorMessage1ModalForAddToCart_Title",
+      "description": "Modal For Add To Cart Title",
+      "defaultValue": "Accessory Cannot be Added to Cart"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "ThresholdErrorMessage1ModalForAddToCart_Button_First",
+      "itemId": "ThresholdErrorMessage1ModalForAddToCart_Button_First",
+      "description": "Threshold Error Message1 Modal For Add To Cart Button First",
+      "defaultValue": "Go To Cart"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "ThresholdErrorMessage1ModalForAddToCart_Button_Second",
+      "itemId": "ThresholdErrorMessage1ModalForAddToCart_Button_Second",
+      "description": "Close message ",
+      "defaultValue": "Close"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "ThresholdErrorMessage1ModalForAddToCart_Body_1",
+      "itemId": "ThresholdErrorMessage1ModalForAddToCart_Body_1",
+      "description": "ThresholdErrorMessage1ModalForAddToCart Body 1",
+      "defaultValue": "We are sorry. Due to limitation set by the system, you can purchase up to {Y} accessories on your account."
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "ThresholdErrorMessage1ModalForAddToCart_Body_2",
+      "itemId": "ThresholdErrorMessage1ModalForAddToCart_Body_2",
+      "description": "Threshold Error Message1 Modal For Add To Cart Body 2",
+      "defaultValue": "You can remove an accessory from your cart and try again or contact us to help you complete your purchase."
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "ThresholdErrorMessage2Modal_Title",
+      "itemId": "ThresholdErrorMessage2Modal_Title",
+      "description": "Maximum Installment Amount Exceeded",
+      "defaultValue": "Maximum Installment Amount Exceeded"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "ThresholdErrorMessage2Modal_Button_First",
+      "itemId": "ThresholdErrorMessage2Modal_Button_First",
+      "description": "ThresholdErrorMessage2Modal Button First",
+      "defaultValue": "Return to Cart"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "ThresholdErrorMessage2Modal_Button_Second",
+      "itemId": "ThresholdErrorMessage2Modal_Button_Second",
+      "description": "Convert All Accessories to Full Price",
+      "defaultValue": "Convert All Accessories to Full Price"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "ThresholdErrorMessage2Modal_Body_1",
+      "itemId": "ThresholdErrorMessage2Modal_Body_1",
+      "description": "We are sorry. Due to accessories installment limit set by the system, you cannot continue with your current cart.",
+      "defaultValue": "We are sorry. Due to accessories installment limit set by the system, you cannot continue with your current cart."
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "ThresholdErrorMessage2Modal_Body_2",
+      "itemId": "ThresholdErrorMessage2Modal_Body_2",
+      "description": "To proceed, purchase all accessories in your cart in full price or contact us to help you complete purchase.",
+      "defaultValue": "To proceed, purchase all accessories in your cart in full price or contact us to help you complete purchase."
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "ThresholdErrorMessage2Modal_Body_3",
+      "itemId": "ThresholdErrorMessage2Modal_Body_3",
+      "description": "Dont worry. Your cart is saved.",
+      "defaultValue": "Dont worry. Your cart is saved."
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "ThresholdErrorMessage2ModalForAddToCart_Title",
+      "itemId": "ThresholdErrorMessage2ModalForAddToCart_Title",
+      "description": "Maximum Installment Amount Exceeded",
+      "defaultValue": "Maximum Installment Amount Exceeded"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "ThresholdErrorMessage2ModalForAddToCart_Button_First",
+      "itemId": "ThresholdErrorMessage2ModalForAddToCart_Button_First",
+      "description": "OK",
+      "defaultValue": "OK"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "ThresholdErrorMessage2ModalForAddToCart_Body_1",
+      "itemId": "ThresholdErrorMessage2ModalForAddToCart_Body_1",
+      "description": "We are sorry. Due to accessories installment limit set by the system, you cannot continue with your current cart.",
+      "defaultValue": "We are sorry. Due to accessories installment limit set by the system, you cannot continue with your current cart."
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "ThresholdErrorMessage2ModalForAddToCart_Body_2",
+      "itemId": "ThresholdErrorMessage2ModalForAddToCart_Body_2",
+      "description": "To add the accessory, purchase it in full price or contact us to help you complete purchase.",
+      "defaultValue": "To add the accessory, purchase it in full price or contact us to help you complete purchase."
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "dial",
+      "itemId": "dial",
+      "description": "For assistance, dial ",
+      "defaultValue": "For assistance, dial "
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "numberPrefix",
+      "itemId": "numberPrefix",
+      "description": "611",
+      "defaultValue": "611"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "fromYourCellular",
+      "itemId": "fromYourCellular",
+      "description": "from your U.S. Cellular® ",
+      "defaultValue": "from your U.S. Cellular® "
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "callOur",
+      "itemId": "callOur",
+      "description": " phone, or call our toll-free number ",
+      "defaultValue": " phone, or call our toll-free number "
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "number",
+      "itemId": "number",
+      "description": "1-800-888-9020",
+      "defaultValue": "1-800-888-9020"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "openDaily",
+      "itemId": "openDaily",
+      "description": "Open Daily",
+      "defaultValue": "Open Daily"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "hours",
+      "itemId": "hours",
+      "description": "7 a.m. - 10 p.m. (7 a.m. - 9 p.m. PT)",
+      "defaultValue": "7 a.m. - 10 p.m. (7 a.m. - 9 p.m. PT)"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "BasketFailedModal_messageTitle",
+      "itemId": "BasketFailedModal_messageTitle",
+      "description": "IMPORTANT MESSAGE:",
+      "defaultValue": "IMPORTANT MESSAGE:"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "BasketFailedModal_messageContent1",
+      "itemId": "BasketFailedModal_messageContent1",
+      "description": "One or more of your lines is below the minimum amount that can be financed as part of U.S. Cellular Accessories Installment Pricing. Minimum required: $120.",
+      "defaultValue": "One or more of your lines is below the minimum amount that can be financed as part of U.S. Cellular Accessories Installment Pricing. Minimum required: $120."
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "BasketFailedModal_messageContent2",
+      "itemId": "BasketFailedModal_messageContent2",
+      "description": "Please return to your cart and review the following lines:",
+      "defaultValue": "Please return to your cart and review the following lines:"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "BasketFailedModal_button",
+      "itemId": "BasketFailedModal_button",
+      "description": "Return to Cart",
+      "defaultValue": "Return to Cart"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "BasketFailedModal_title",
+      "itemId": "BasketFailedModal_title",
+      "description": "Review your cart",
+      "defaultValue": "Review your cart"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "QuotationErrorMessage2Modal_Title",
+      "itemId": "QuotationErrorMessage2Modal_Title",
+      "description": "Installment Pricing Not Available",
+      "defaultValue": "Installment Pricing Not Available"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "QuotationErrorMessage2Modal_Button_First",
+      "itemId": "QuotationErrorMessage2Modal_Button_First",
+      "description": "Return to Cart",
+      "defaultValue": "Return to Cart"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "QuotationErrorMessage2Modal_Button_Second",
+      "itemId": "QuotationErrorMessage2Modal_Button_Second",
+      "description": "Convert All Accessories to Full Price",
+      "defaultValue": "Convert All Accessories to Full Price"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "QuotationErrorMessage2Modal_Body_1",
+      "itemId": "QuotationErrorMessage2Modal_Body_1",
+      "description": "We are sorry. One or more accessories in your cart cannot be purchased with installment pricing at the moment.",
+      "defaultValue": "We are sorry. One or more accessories in your cart cannot be purchased with installment pricing at the moment."
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "QuotationErrorMessage2Modal_Body_2",
+      "itemId": "QuotationErrorMessage2Modal_Body_2",
+      "description": "To proceed, return to your cart and purchase the accessories with full price or remove the accessories and select others.",
+      "defaultValue": "To proceed, return to your cart and purchase the accessories with full price or remove the accessories and select others."
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "QuotationErrorMessage2Modal_Body_3",
+      "itemId": "QuotationErrorMessage2Modal_Body_3",
+      "description": "Accessories that cannot be purchased with installment pricing:",
+      "defaultValue": "Accessories that cannot be purchased with installment pricing:"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "QuotationErrorMessage1Modal_Title",
+      "itemId": "QuotationErrorMessage1Modal_Title",
+      "description": "Installment Pricing Not Available",
+      "defaultValue": "Installment Pricing Not Available"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "QuotationErrorMessage1Modal_Button_First",
+      "itemId": "QuotationErrorMessage1Modal_Button_First",
+      "description": "OK",
+      "defaultValue": "OK"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "QuotationErrorMessage1Modal_Body_1_1",
+      "itemId": "QuotationErrorMessage1Modal_Body_1_1",
+      "description": "We are sorry. The accessory ",
+      "defaultValue": "We are sorry. The accessory "
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "QuotationErrorMessage1Modal_Body_1_2",
+      "itemId": "QuotationErrorMessage1Modal_Body_1_2",
+      "description": "accessory Name",
+      "defaultValue": "{accessoryName} "
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "QuotationErrorMessage1Modal_Body_1_3",
+      "itemId": "QuotationErrorMessage1Modal_Body_1_3",
+      "description": "cannot be purchased with installment pricing at the moment.",
+      "defaultValue": "cannot be purchased with installment pricing at the moment."
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "QuotationErrorMessage1Modal_Body_2",
+      "itemId": "QuotationErrorMessage1Modal_Body_2",
+      "description": "To proceed, you can purchase the accessories with full price or select other accessories.",
+      "defaultValue": "To proceed, you can purchase the accessories with full price or select other accessories."
+    }
+  ],
+  "groups": [
+    {
+      "groupId": "mainTitle",
+      "displayName": "main title"
+    },
+    {
+      "groupId": "navigation",
+      "displayName": "Navigations"
+    },
+    {
+      "groupId": "images",
+      "displayName": "Images"
+    },
+    {
+      "groupId": "displayOptions",
+      "displayName": "Determone whether to display or not"
+    },
+    {
+      "groupId": "filters",
+      "displayName": "Filters"
+    },
+    {
+      "groupId": "addToCart",
+      "displayName": "Add To Cart"
+    },
+    {
+      "groupId": "accessoryCard",
+      "displayName": "Accessory Card"
+    },
+    {
+      "groupId": "infoTab",
+      "displayName": "Accessory details information tab"
+    },
+    {
+      "groupId": "accessoryGalleryMessages",
+      "displayName": "Accessory Gallery Messages"
+    },
+    {
+      "groupId": "displayLabels",
+      "displayName": "Display Labels"
+    },
+    {
+      "groupId": "accessoryAviability",
+      "displayName": "Accessory Aviability"
+    },
+    {
+      "groupId": "deviceGalleryNavLine",
+      "displayName": "Device Gallery Nav line Texts",
+      "description": "Texts of labels or buttons of the nav line from device gallery"
+    }
+  ],
+  "initializationParams": [
+    {
+      "itemId": "",
+      "displayName": "",
+      "type": "boolean",
+      "description": "",
+      "defaultValue": true,
+      "enableUrlInput": true
+    }
+  ],
+  "stateParams": [
+    {
+      "itemId": "",
+      "displayName": "",
+      "type": "boolean",
+      "description": "",
+      "defaultValue": true
+    }
+  ]
+}
