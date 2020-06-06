@@ -81,7 +81,7 @@ function ViewModel() {
 	self.notExistBehaviorInDesc = ko.observable(null);
 	self.notExistOutcomesInXml = ko.observable(null);
 	self.notExistOutcomesInDesc = ko.observable(null);
-
+	self.isAllGood = ko.observable(false);
 	self.onFilesLoaded = function() {
 		const {
 			notExistContentInDesc,
@@ -97,6 +97,14 @@ function ViewModel() {
 		self.notExistBehaviorInDesc(notExistBehaviorInDesc);
 		self.notExistOutcomesInXml(notExistOutcomesInXml);
 		self.notExistOutcomesInDesc(notExistOutcomesInDesc);
+		self.isAllGood(
+			!notExistContentInDesc.length &&
+			!notExistContentInXml.length &&
+			!notExistBehaviorInXml.length &&
+			!notExistBehaviorInDesc.length &&
+			!notExistOutcomesInXml.length &&
+			!notExistOutcomesInDesc.length
+		);
 		self.isFilesLoaded(true);
 	}
 
